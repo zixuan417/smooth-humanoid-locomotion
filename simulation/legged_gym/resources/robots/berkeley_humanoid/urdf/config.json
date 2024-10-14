@@ -1,0 +1,40 @@
+{
+    "documentId": "8cfa1b31d8767219fe1723ba",
+    "workspaceId": "fa9d8ae5d0a1cade6f0bf12a",
+    "assemblyName": "Simplified",
+    "outputFormat": "urdf",
+    "simplifySTLs": "all",
+    "packageName": "berkeley_humanoid_description/meshs",
+    "jointMaxEffort": {
+        "LL_HR": 20,
+        "LL_HAA": 20,
+        "LL_HFE": 30,
+        "LL_KFE": 30,
+        "LL_FFE": 20,
+        "LL_FAA": 5,
+        "LR_HR": 20,
+        "LR_HAA": 20,
+        "LR_HFE": 30,
+        "LR_KFE": 30,
+        "LR_FFE": 20,
+        "LR_FAA": 5
+    },
+    "jointMaxVelocity": {
+        "LL_HR": 23,
+        "LL_HAA": 23,
+        "LL_HFE": 20,
+        "LL_KFE": 14,
+        "LL_FFE": 20,
+        "LL_FAA": 42,
+        "LR_HR": 23,
+        "LR_HAA": 23,
+        "LR_HFE": 20,
+        "LR_KFE": 14,
+        "LR_FFE": 23,
+        "LR_FAA": 42
+    },
+    "additionalUrdfFile": "gazebo.urdf",
+    "postImportCommands": [
+        "rm ../meshs/*.stl && mv *.stl ../meshs && rm  *.part"
+    ]
+}

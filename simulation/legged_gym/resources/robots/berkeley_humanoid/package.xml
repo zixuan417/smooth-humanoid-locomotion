@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<package format="2">
+
+  <name>berkeley_humanoid_description</name>
+  <version>1.0.1</version>
+  <description>Cal Humanoid Description Package</description>
+
+  <license>BSD-3</license>
+
+  <author email="qiayuanl@berkeley.edu">Qiayuan Liao</author>
+  <maintainer email="qiayuanl@berkeley.edu">Qiayuan Liao</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <test_depend>roslaunch</test_depend>
+
+</package>

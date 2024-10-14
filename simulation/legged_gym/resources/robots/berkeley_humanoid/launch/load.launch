@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+  <!-- Give the robot description parameter a name -->
+  <arg name="description_name"           default="berkeley_humanoid_description"/>
+  <!-- Set robot description path -->
+  <arg name="description_file"           default="$(find berkeley_humanoid_description)/urdf/robot.urdf"/>
+
+
+  <!-- Run xacro script to generate Berkeley Humanoid description -->
+  <param name="$(arg description_name)" textfile="$(arg description_file)"/>
+
+</launch>

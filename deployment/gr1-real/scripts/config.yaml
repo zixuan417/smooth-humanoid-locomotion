@@ -1,0 +1,127 @@
+device_connected: true
+cpu: "X64"
+system: "LINUX"
+robot:
+  name: "GR1"
+  mechanism: "T2"
+  control_period: 0.01
+  input_and_calculate_period: 0
+
+comm:
+  enable: false
+  use_raw: false
+  use_json: false
+  use_dds: false
+  use_sim: false
+
+operator:
+  use_joystick: false #true
+  joystick_connected: false #true
+  joystick_type: "XBOX"
+  use_keyboard: false
+  keyboard_connected: false
+
+ota:
+  enable: false
+
+hardware:
+  use_can: false
+  use_ethernet: false
+  use_etherbus: false
+  use_fi_fse: true
+  use_fi_fsa: true
+
+sensor_usb_imu:
+  usb: [
+    "/dev/ttyUSB0"
+  ]
+  angle_direction: [
+    [ 1, 1, 1 ]
+  ]
+  angular_velocity_direction: [
+    [ 1, 1, 1 ]
+  ]
+  comm_enable: [
+    true
+  ]
+  comm_frequency: [
+    500
+  ]
+
+sensor_abs_encoder:
+  type: "FIFSEV1"
+  ip: [
+    # left leg
+    "192.168.137.170", "192.168.137.171", "192.168.137.172", "192.168.137.173", "192.168.137.174", "192.168.137.175",
+    # right leg
+    "192.168.137.150", "192.168.137.151", "192.168.137.152", "192.168.137.153", "192.168.137.154", "192.168.137.155",
+    # waist
+    "192.168.137.190", "192.168.137.191", "192.168.137.192",
+  ]
+  data_path: "sensor_offset.json"
+
+fi_fse:
+  version: "v1"
+
+fi_fsa:
+  version: "v1"
+  concurrency: false
+
+actuator:
+  type: "FIFSAV1"
+  ip: [
+    # left leg
+    "192.168.137.70", "192.168.137.71", "192.168.137.72", "192.168.137.73", "192.168.137.74", "192.168.137.75",
+    # right leg
+    "192.168.137.50", "192.168.137.51", "192.168.137.52", "192.168.137.53", "192.168.137.54", "192.168.137.55",
+    # waist
+    "192.168.137.90", "192.168.137.91", "192.168.137.92",
+    # head
+    "192.168.137.93", "192.168.137.94", "192.168.137.95",
+    # left arm
+    "192.168.137.10" , "192.168.137.11" , "192.168.137.12" , "192.168.137.13" , "192.168.137.14" , "192.168.137.15" , "192.168.137.16",
+    # right arm
+    "192.168.137.30" , "192.168.137.31" , "192.168.137.32" , "192.168.137.33" , "192.168.137.34" , "192.168.137.35" , "192.168.137.36",
+  ]
+  comm_enable: [
+    # left leg
+    true, true, true, true, true, true,
+    # right leg
+    true, true, true, true, true, true,
+    # waist
+    true, true, true,
+    # head
+    true, true, true,
+    # left arm
+    true, true, true, true, true, true, true,
+    # right arm
+    true, true, true, true, true, true, true,
+  ]
+  comm_block: [
+    # left leg
+    false, false, false, false, false, false,
+    # right leg
+    false, false, false, false, false, false,
+    # waist
+    false, false, false,
+    # head
+    false, false, false,
+    # left arm
+    false, false, false, false, false, false, false,
+    # right arm
+    false, false, false, false, false, false, false,
+  ]
+  comm_use_fast: [
+    # left leg
+    true, true, true, true, true, true,
+    # right leg
+    true, true, true, true, true, true,
+    # waist
+    true, true, true,
+    # head
+    true, true, true,
+    # left arm
+    true, true, true, true, true, true, true,
+    # right arm
+    true, true, true, true, true, true, true,
+  ]

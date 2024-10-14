@@ -1,0 +1,159 @@
+<gazebo reference="ll_faa">
+    <mu1>0.7</mu1>
+    <mu2>0.7</mu2>
+    <self_collide>0</self_collide>
+    <material>Gazebo/DarkGrey</material>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+</gazebo>
+
+<gazebo reference="lr_faa">
+<mu1>0.7</mu1>
+<mu2>0.7</mu2>
+<self_collide>0</self_collide>
+<material>Gazebo/DarkGrey</material>
+<kp value="1000000.0"/>
+<kd value="100.0"/>
+</gazebo>
+
+<!-- ros_control plugin -->
+<gazebo>
+<plugin name="gazebo_ros_control" filename="liblegged_hw_sim.so">
+    <robotNamespace>/</robotNamespace>
+    <robotParam>legged_robot_description</robotParam>
+    <robotSimType>legged_gazebo/LeggedHWSim</robotSimType>
+</plugin>
+</gazebo>
+
+<gazebo>
+<plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+    <alwaysOn>true</alwaysOn>
+    <updateRate>1000.0</updateRate>
+    <bodyName>torso</bodyName>
+    <topicName>ground_truth/state</topicName>
+    <gaussianNoise>0</gaussianNoise>
+    <frameName>world</frameName>
+    <xyzOffsets>0 0 0</xyzOffsets>
+    <rpyOffsets>0 0 0</rpyOffsets>
+</plugin>
+</gazebo>
+
+<transmission name="LL_HR_tran">
+<type>transmission_interface/SimpleTransmission</type>
+<joint name="LL_HR">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</joint>
+<actuator name="LL_HR_motor">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</actuator>
+</transmission>
+
+<transmission name="LL_HAA_tran">
+<type>transmission_interface/SimpleTransmission</type>
+<joint name="LL_HAA">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</joint>
+<actuator name="LL_HAA_motor">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</actuator>
+</transmission>
+
+<transmission name="LL_HFE_tran">
+<type>transmission_interface/SimpleTransmission</type>
+<joint name="LL_HFE">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</joint>
+<actuator name="LL_HFE_motor">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</actuator>
+</transmission>
+
+<transmission name="LL_KFE_tran">
+<type>transmission_interface/SimpleTransmission</type>
+<joint name="LL_KFE">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</joint>
+<actuator name="LL_KFE_motor">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</actuator>
+</transmission>
+
+<transmission name="LL_FFE_tran">
+<type>transmission_interface/SimpleTransmission</type>
+<joint name="LL_FFE">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</joint>
+<actuator name="LL_FFE_motor">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</actuator>
+</transmission>
+
+<transmission name="LL_FAA_tran">
+<type>transmission_interface/SimpleTransmission</type>
+<joint name="LL_FAA">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</joint>
+<actuator name="LL_FAA_motor">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</actuator>
+</transmission>
+
+<transmission name="LR_HR_tran">
+<type>transmission_interface/SimpleTransmission</type>
+<joint name="LR_HR">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</joint>
+<actuator name="LR_HR_motor">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</actuator>
+</transmission>
+
+<transmission name="LR_HAA_tran">
+<type>transmission_interface/SimpleTransmission</type>
+<joint name="LR_HAA">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</joint>
+<actuator name="LR_HAA_motor">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</actuator>
+</transmission>
+
+<transmission name="LR_HFE_tran">
+<type>transmission_interface/SimpleTransmission</type>
+<joint name="LR_HFE">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</joint>
+<actuator name="LR_HFE_motor">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</actuator>
+</transmission>
+
+<transmission name="LR_KFE_tran">
+<type>transmission_interface/SimpleTransmission</type>
+<joint name="LR_KFE">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</joint>
+<actuator name="LR_KFE_motor">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</actuator>
+</transmission>
+
+<transmission name="LR_FFE_tran">
+<type>transmission_interface/SimpleTransmission</type>
+<joint name="LR_FFE">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</joint>
+<actuator name="LR_FFE_motor">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</actuator>
+</transmission>
+
+<transmission name="LR_FAA_tran">
+<type>transmission_interface/SimpleTransmission</type>
+<joint name="LR_FAA">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</joint>
+<actuator name="LR_FAA_motor">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+</actuator>
+</transmission>

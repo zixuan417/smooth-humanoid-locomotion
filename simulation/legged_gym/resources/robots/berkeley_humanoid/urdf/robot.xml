@@ -1,0 +1,137 @@
+<mujoco model="onshape">
+    <compiler angle="radian" meshdir="../meshs/" eulerseq="xyz" autolimits="true" />
+    <option timestep='0.001' iterations='50' solver='PGS' gravity='0 0 -9.81'></option>
+  
+  <asset>
+    <texture name="texplane" builtin="checker" height="512" width="512" rgb1=".2 .3 .4" rgb2=".1 .15 .2" type="2d" />
+    <material name="MatPlane" reflectance="0.5" shininess="0.01" specular="0.1" texrepeat="1 1" texture="texplane" texuniform="true" />
+    <mesh name="torso" file="torso.stl" />
+    <mesh name="ll_hr" file="ll_hr.stl" />
+    <mesh name="ll_haa" file="ll_haa.stl" />
+    <mesh name="ll_hfe" file="ll_hfe.stl" />
+    <mesh name="ll_kfe" file="ll_kfe.stl" />
+    <mesh name="ll_ffe" file="ll_ffe.stl" />
+    <mesh name="ll_faa" file="ll_faa.stl" />
+    <mesh name="lr_hr" file="lr_hr.stl" />
+    <mesh name="lr_haa" file="lr_haa.stl" />
+    <mesh name="lr_hfe" file="lr_hfe.stl" />
+    <mesh name="lr_kfe" file="lr_kfe.stl" />
+    <mesh name="lr_ffe" file="lr_ffe.stl" />
+    <mesh name="lr_faa" file="lr_faa.stl" />
+  </asset>
+
+  <worldbody>
+    <body name="torso">
+      <joint name="floating_base_joint" type="free" />
+      <site name="imu" size='0.01' pos='0.0 0.0 0.0'/>
+      <inertial pos="0.0123294 -0.0023557 0.114047" quat="0.997324 0.0100377 0.00560983 -0.0721951" mass="5.37812" diaginertia="0.0900564 0.0815619 0.0530251" />
+      <geom type="mesh" mesh="torso" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" />
+      <geom size="0.09 0.125 0.125" pos="0.02 0 0.12" type="box" rgba="0.917647 0.917647 0.917647 0" />
+      <body name="ll_hr" pos="0 0.07 0" quat="0.92388 0 0.382683 0">
+        <inertial pos="-0.00717501 0.000638 -0.0603296" quat="0.997785 0.00699266 0.066053 0.00374607" mass="0.797" diaginertia="0.00165598 0.00124847 0.000774206" />
+        <joint name="LL_HR" pos="0 0 0" axis="0 0 1" range="-0.610865 0.610865" actuatorfrcrange="-20 20" />
+        <geom type="mesh" mesh="ll_hr" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" pos="0.0 -0.07 0.0" euler="0.0 -0.78539816339744961127 0.0" />
+        <body name="ll_haa" pos="0.0158 0 -0.065" quat="0.707107 0 -0.707107 0">
+          <geom type="mesh" mesh="ll_haa" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" pos="0.065 -0.07 0.0158" euler="0.0 0.785398163397448279 0.0"/>
+          <inertial pos="0.000606614 -0.009735 -0.0611092" quat="0.702991 -0.06137 0.0554512 0.706373" mass="0.897" diaginertia="0.0018904 0.0014613 0.000923049" />
+          <joint name="LL_HAA" pos="0 0 0" axis="0 0 1" range="-0.610865 0.610865" actuatorfrcrange="-20 20" />
+          <body name="ll_hfe" pos="0 0.0158 -0.065" quat="0.653281 -0.653281 -0.270598 -0.270598">
+            <inertial pos="-0.0596998 -0.000999287 0.045473" quat="-0.00572221 0.744789 -0.0182535 0.667026" mass="2.689" diaginertia="0.0191406 0.0181903 0.00583016" />
+            <geom type="mesh" mesh="ll_hfe" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" pos="0.1031 -0.0112 -0.0858" euler="1.5708 1.5708 0.0"/>
+            <joint name="LL_HFE" pos="0 0 0" axis="0 0 1" range="-1.74533 0.523599" actuatorfrcrange="-30 30" />
+            <geom size="0.0615 0.045" pos="9.61687e-05 -2.87143e-07 0.0542" quat="0 -0.707107 -0.707107 0" type="cylinder" rgba="0.917647 0.917647 0.917647 0" />
+            <geom size="0.052 0.04" pos="-0.114904 -2.87143e-07 0.0592" quat="0 -0.707107 -0.707107 0" type="cylinder" rgba="0.917647 0.917647 0.917647 0" />
+            <body name="ll_kfe" pos="-0.22 0 0.0742" quat="1 0 0 0">
+              <geom type="mesh" mesh="ll_kfe" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" pos="0.3231 -0.0112 -0.16" euler="1.5708 1.5708 0.0"/>
+              <inertial pos="-0.0856948 -0.00928029 -0.002232" quat="-0.11773 0.702823 -0.0559586 0.69932" mass="0.35" diaginertia="0.00161117 0.00159463 9.70556e-05" />
+              <joint name="LL_KFE" pos="0 0 0" axis="0 0 1" range="0 2.0944" actuatorfrcrange="-30 30" />
+              <geom size="0.015 0.02 0.08" pos="-0.0569038 -0.00117229 0" quat="0.5 0.5 0.5 0.5" type="box" rgba="0.917647 0.917647 0.917647 1" />
+              <body name="ll_ffe" pos="-0.18 0 0">
+                <geom type="mesh" mesh="ll_ffe" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" pos="0.5031 -0.0112 -0.16" euler="1.5708 1.5708 0.0"/>
+                <inertial pos="-0.00107817 0.0237707 6.8e-05" quat="0.553259 0.458091 -0.532546 0.447717" mass="0.0993228" diaginertia="8.20308e-05 7.84322e-05 9.34827e-06" />
+                <joint name="LL_FFE" pos="0 0 0" axis="0 0 1" range="-0.523599 0.698132" actuatorfrcrange="-20 20" />
+                <body name="ll_faa" pos="0 0.0175 0" quat="0.5 -0.5 -0.5 -0.5">
+                  <inertial pos="-2.9e-05 -0.0163978 0.0153387" quat="0.985258 -0.171058 -0.00255986 0.000455342" mass="0.507" diaginertia="0.00109422 0.000978734 0.000375399" />
+                  <joint name="LL_FAA" pos="0 0 0" axis="0 0 1" range="-0.523599 0.523599" actuatorfrcrange="-5 5" />
+                  <geom type="mesh" mesh="ll_faa" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" pos="-0.16 0.5031 -0.029" euler="-1.5708 0 -1.5708"/>
+                  <geom size="0.08 0.0275 0.006" pos="0 -0.0429038 0.0133277" quat="0.45452 -0.541675 -0.541675 -0.45452" type="box" rgba="0.917647 0.917647 0.917647 0" />
+                  <!-- <body name="LL_FOOT" pos="0 -0.048689 0.014485" quat="-0.454519 0.541675 0.541675 0.454519">
+                    <inertial pos="0 0 0" mass="1e-09" diaginertia="0 0 0" />
+                  </body> -->
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="lr_hr" pos="0 -0.07 0" quat="0.92388 0 0.382683 0">
+        <geom type="mesh" mesh="lr_hr" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" pos="0.0 0.07 0.0" euler="0.0 -0.79 0.0"/>
+        <inertial pos="-0.00717501 -0.000638 -0.0603296" quat="0.997804 -0.00433689 0.066057 0.0019766" mass="0.797" diaginertia="0.00165632 0.00124845 0.000774613" />
+        <joint name="LR_HR" pos="0 0 0" axis="0 0 1" range="-0.610865 0.610865" actuatorfrcrange="-20 20" />
+        <body name="lr_haa" pos="0.0158 0 -0.065" quat="0.707107 0 -0.707107 0">
+          <geom type="mesh" mesh="lr_haa" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" pos="0.065 0.07 0.0158" euler="0.0 0.7854 0.0"/>
+          <inertial pos="0.000606614 0.009735 -0.0611092" quat="0.704792 0.0582267 -0.0597566 0.704491" mass="0.897" diaginertia="0.00189204 0.00146613 0.000918492" />
+          <joint name="LR_HAA" pos="0 0 0" axis="0 0 1" range="-0.610865 0.610865" actuatorfrcrange="-20 20" />
+          <body name="lr_hfe" pos="0 -0.0158 -0.065" quat="0.653281 -0.653281 -0.270598 -0.270598">
+            <geom type="mesh" mesh="lr_hfe" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" pos="0.1031 -0.0112 0.086" euler="1.5708 1.5708 0.0"/>
+            <inertial pos="-0.0596998 -0.000999287 -0.045473" quat="0.018407 0.667006 0.00579507 0.744802" mass="2.689" diaginertia="0.0191386 0.0181883 0.00582996" />
+            <joint name="LR_HFE" pos="0 0 0" axis="0 0 1" range="-1.74533 0.523599" actuatorfrcrange="-30 30" />
+            <geom size="0.0615 0.045" pos="9.61687e-05 -2.87143e-07 -0.0542" quat="0 -0.707107 -0.707107 0" type="cylinder" rgba="0.917647 0.917647 0.917647 0" />
+            <geom size="0.052 0.04" pos="-0.114904 -2.87143e-07 -0.0592" quat="0 -0.707107 -0.707107 0" type="cylinder" rgba="0.917647 0.917647 0.917647 0" />
+            <body name="lr_kfe" pos="-0.22 0 -0.0742" quat="1 0 0 0">
+              <geom type="mesh" mesh="lr_kfe" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" pos="0.3231 -0.0112 0.16" euler="1.5708 1.5708 0.0"/>
+              <inertial pos="-0.0856948 -0.00928029 0.002232" quat="0.055958 0.69932 0.11773 0.702823" mass="0.35" diaginertia="0.00161117 0.00159463 9.70556e-05" />
+              <joint name="LR_KFE" pos="0 0 0" axis="0 0 1" range="0 2.0944" actuatorfrcrange="-30 30" />
+              <geom size="0.015 0.02 0.08" pos="-0.0569038 -0.00117229 0" quat="0.5 0.5 0.5 0.5" type="box" rgba="0.917647 0.917647 0.917647 0" />
+              <body name="lr_ffe" pos="-0.18 0 0" quat="1 0 0 0">
+                <geom type="mesh" mesh="lr_ffe" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" pos="0.5031 -0.0112 0.16" euler="1.5708 1.5708 0.0"/>
+                <inertial pos="-0.00107817 0.0237707 -6.8e-05" quat="0.532548 0.447721 -0.553256 0.45809" mass="0.0993223" diaginertia="8.20306e-05 7.84321e-05 9.34825e-06" />
+                <joint name="LR_FFE" pos="0 0 0" axis="0 0 1" range="-0.523599 0.698132" actuatorfrcrange="-20 20" />
+                <body name="lr_faa" pos="0 0.0175 0" quat="0.5 -0.5 -0.5 -0.5">
+                  <inertial pos="2.9e-05 -0.0163368 0.0153387" quat="0.985231 -0.171209 0.00251902 -0.000808065" mass="0.507" diaginertia="0.00109488 0.000978788 0.000376011" />
+                  <joint name="LR_FAA" pos="0 0 0" axis="0 0 1" range="-0.523599 0.523599" actuatorfrcrange="-5 5" />
+                  <geom size="0.08 0.0275 0.006" pos="0 -0.0429038 0.0133277" quat="-0.45452 0.541675 0.541675 0.45452" type="box" rgba="0.917647 0.917647 0.917647 0" />
+                  <geom type="mesh" mesh="lr_faa" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" pos="0.16 0.5031 -0.029" euler="-1.5708 0 -1.5708"/>
+                  <!-- <body name="LR_FOOT" pos="0 -0.048689 0.014485" quat="0.454519 -0.541675 -0.541675 -0.454519">
+                    <inertial pos="0 0 0" mass="1e-09" diaginertia="0 0 0" />
+                  </body> -->
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <geom name="ground" type="plane" size="0 0 1" pos="0.001 0 0" quat="1 0 0 0" material="MatPlane" condim="1" conaffinity='15'/>
+    <light pos="0 0 1000" castshadow="true" />
+  </worldbody>
+
+  <actuator>
+    <motor name="LL_HR" joint="LL_HR" gear="1" ctrllimited="true" ctrlrange="-100 100" />
+    <motor name="LL_HAA" joint="LL_HAA" gear="1" ctrllimited="true" ctrlrange="-100 100" />
+    <motor name="LL_HFE" joint="LL_HFE" gear="1" ctrllimited="true" ctrlrange="-100 100" />
+    <motor name="LL_KFE" joint="LL_KFE" gear="1" ctrllimited="true" ctrlrange="-100 100" />
+    <motor name="LL_FFE" joint="LL_FFE" gear="1" ctrllimited="true" ctrlrange="-100 100" />
+    <motor name="LL_FAA" joint="LL_FAA" gear="1" ctrllimited="true" ctrlrange="-100 100" />
+    <motor name="LR_HR" joint="LR_HR" gear="1" ctrllimited="true" ctrlrange="-100 100" />
+    <motor name="LR_HAA" joint="LR_HAA" gear="1" ctrllimited="true" ctrlrange="-100 100" />
+    <motor name="LR_HFE" joint="LR_HFE" gear="1" ctrllimited="true" ctrlrange="-100 100" />
+    <motor name="LR_KFE" joint="LR_KFE" gear="1" ctrllimited="true" ctrlrange="-100 100" />
+    <motor name="LR_FFE" joint="LR_FFE" gear="1" ctrllimited="true" ctrlrange="-100 100" />
+    <motor name="LR_FAA" joint="LR_FAA" gear="1" ctrllimited="true" ctrlrange="-100 100" />
+  </actuator>
+
+  <sensor>
+    <framequat     name='orientation' objtype='site' noise='0.001' objname='imu'/>
+    <framepos      name='position' objtype='site' noise='0.001' objname='imu'/>
+    <gyro          name='angular-velocity'    site='imu' noise='0.005' cutoff='34.9'/>
+    <velocimeter   name='linear-velocity'     site='imu' noise='0.001' cutoff='30'/>
+    <accelerometer name='linear-acceleration' site='imu' noise='0.005' cutoff='157'/>
+    <magnetometer  name='magnetometer'        site='imu'/>
+  </sensor>
+
+  <keyframe>
+    <key name="home"
+      qpos="0 0 0.55 1 0 0 0 -0.071 0.103 -0.463 0.983 -0.350 0.126 0.071 -0.103 -0.463 0.983 -0.350 -0.126" />
+  </keyframe>
+</mujoco>

@@ -1,0 +1,97 @@
+log_config: false  # print config file content when start program
+device_connected: true
+cpu: "X64"
+system: "LINUX"
+robot:
+  name: "GR1"
+  mechanism: "T2"
+  #  control_period: 0.0025  # 400Hz
+  control_period: 0.01  # 100Hz
+  algorithm_period: 0.01  # 100Hz
+  communication_period: 0.02  # 50Hz
+
+comm:
+  enable: false
+  use_raw: false
+  use_json: false
+  use_dds: false
+  use_sim: false
+
+operator:
+  use_joystick: true
+  joystick_connected: true
+  joystick_type: "XBOX"  # support "XBOS", "PS4", "PS5"
+  use_keyboard: false
+  keyboard_connected: false
+
+ota:
+  enable: false
+
+hardware:
+  use_can: false
+  use_ethernet: false
+  use_fi_fse: true
+  use_fi_fsa: true
+
+sensor_usb_imu:
+  usb: [
+    # must put base link imu at first
+    "/dev/ttyUSB0"
+  ]
+  comm_enable: [
+    true
+  ]
+  comm_frequency: [
+    500
+  ]
+
+sensor_abs_encoder:
+  type: "FIFSEV1"
+  data_path: "sensor_offset.json"
+
+fi_fse:
+  version: "v1"
+
+fi_fsa:
+  version: "v1"
+  concurrency: false
+
+actuator:
+  type: "FIFSAV1"
+  use_dic: false
+  names: [
+    "l_hip_roll", "l_hip_yaw", "l_hip_pitch", "l_knee_pitch", "l_ankle_pitch", "l_ankle_roll",
+    "r_hip_roll", "r_hip_yaw", "r_hip_pitch", "r_knee_pitch", "r_ankle_pitch", "r_ankle_roll",
+    "joint_waist_yaw", "joint_waist_pitch", "joint_waist_roll",
+    "joint_head_pitch", "joint_head_roll", "joint_head_yaw",
+    "l_shoulder_pitch", "l_shoulder_roll", "l_shoulder_yaw", "l_elbow_pitch", "l_wrist_yaw", "l_wrist_roll", "l_wrist_pitch",
+    "r_shoulder_pitch", "r_shoulder_roll", "r_shoulder_yaw", "r_elbow_pitch", "r_wrist_yaw", "r_wrist_roll", "r_wrist_pitch",
+  ]
+  comm_enable: [
+    # left leg
+    true, true, true, true, true, true,
+    # right leg
+    true, true, true, true, true, true,
+    # waist
+    true, true, true,
+    # head
+    false, false, false,
+    # left arm
+    true, true, true, true, false, false, false,
+    # right arm
+    true, true, true, true, false, false, false,
+  ]
+  comm_use_fast: [
+    # left leg
+    true, true, true, true, true, true,
+    # right leg
+    true, true, true, true, true, true,
+    # waist
+    true, true, true,
+    # head
+    false, false, false,
+    # left arm
+    true, true, true, true, false, false, false,
+    # right arm
+    true, true, true, true, false, false, false,
+  ]
