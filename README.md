@@ -59,11 +59,10 @@ Our codebase currently provides the real-world deployment code of **Fourier GR1T
 ## Citation
 If you find this work useful, please consider citing:
 ```
-@article{chen2024learning,
+@article{chen2024lcp,
 title={Learning Smooth Humanoid Locomotion through Lipschitz-Constrained Policies},
-author={Chen, Zixuan and He, Xialin and Wang, Yen-Jen and Liao, Qiayuan and Ze, Yanjie and Li, Zhongyu and 
-    Sastry, S. Shankar and Wu, Jiajun and Sreenath, Koushil and Gupta, Saurabh and Peng, Xue Bin},
-journal={arxiv Preprint},
+author={Zixuan Chen and Xialin He and Yen-Jen Wang and Qiayuan Liao and Yanjie Ze and Zhongyu Li and S. Shankar Sastry and Jiajun Wu and Koushil Sreenath and Saurabh Gupta and Xue Bin Peng},
+journal={arxiv Preprint arXiv:2410.11825},
 year={2024}
 }
 ```
