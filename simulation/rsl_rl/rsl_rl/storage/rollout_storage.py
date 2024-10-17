@@ -152,12 +152,6 @@ class RolloutStorage:
 
         observations = self.observations.flatten(0, 1)
 
-        # # shift the observations by one step to the left to get the next observations
-        # next_disc_observations = torch.cat((self.disc_observations[1:], self.disc_observations[-1].unsqueeze(0)), dim=0)
-        # done_indices = self.dones.nonzero(as_tuple=False).squeeze()
-        # next_disc_observations[done_indices] = self.disc_observations[done_indices]
-        # next_disc_observations = next_disc_observations.flatten(0, 1)
-
         if self.privileged_observations is not None:
             critic_observations = self.privileged_observations.flatten(0, 1)
         else:

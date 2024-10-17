@@ -257,8 +257,6 @@ class OnPolicyRunner:
         wandb_dict['Loss/entropy_coef'] = locs['entropy_coef']
         wandb_dict['Loss/grad_penalty_loss'] = locs['mean_grad_penalty_loss']
         wandb_dict['Loss/learning_rate'] = self.alg.learning_rate
-        # wandb_dict['Loss/discriminator'] = locs['mean_disc_loss']
-        # wandb_dict['Loss/discriminator_accuracy'] = locs['mean_disc_acc']
 
         wandb_dict['Adaptation/hist_latent_loss'] = locs['mean_hist_latent_loss']
         wandb_dict['Adaptation/priv_reg_loss'] = locs['mean_priv_reg_loss']
@@ -273,12 +271,7 @@ class OnPolicyRunner:
         wandb_dict['Perf/learning_time'] = locs['learn_time']
         if len(locs['rewbuffer']) > 0:
             wandb_dict['Train/mean_reward'] = statistics.mean(locs['rewbuffer'])
-            # wandb_dict['Train/mean_reward_explr'] = statistics.mean(locs['rew_explr_buffer'])
-            # wandb_dict['Train/mean_reward_task'] = statistics.mean(locs['task_rew_buf'])
-            # wandb_dict['Train/mean_reward_entropy'] = statistics.mean(locs['rew_entropy_buffer'])
             wandb_dict['Train/mean_episode_length'] = statistics.mean(locs['lenbuffer'])
-            # wandb_dict['Train/mean_reward/time', statistics.mean(locs['rewbuffer']), self.tot_time)
-            # wandb_dict['Train/mean_episode_length/time', statistics.mean(locs['lenbuffer']), self.tot_time)
 
         wandb.log(wandb_dict, step=locs['it'])
 
@@ -296,16 +289,9 @@ class OnPolicyRunner:
                           f"""{'Value function loss:':>{pad}} {locs['mean_value_loss']:.4f}\n"""
                           f"""{'Surrogate loss:':>{pad}} {locs['mean_surrogate_loss']:.4f}\n"""
                           f"""{'Grad penalty loss:':>{pad}} {locs['mean_grad_penalty_loss']:.4f}\n"""
-                        #   f"""{'Discriminator loss:':>{pad}} {locs['mean_disc_loss']:.4f}\n"""
-                        #   f"""{'Discriminator accuracy:':>{pad}} {locs['mean_disc_acc']:.4f}\n"""
                           f"""{'Mean action noise std:':>{pad}} {mean_std.item():.2f}\n"""
                           f"""{'Mean reward (total):':>{pad}} {statistics.mean(locs['rewbuffer']):.2f}\n"""
-                        #   f"""{'Mean reward (task):':>{pad}} {statistics.mean(locs['task_rew_buf']):.2f}\n"""
-                        #   f"""{'Mean reward (exploration):':>{pad}} {statistics.mean(locs['rew_explr_buffer']):.2f}\n"""
-                        #   f"""{'Mean reward (entropy):':>{pad}} {statistics.mean(locs['rew_entropy_buffer']):.2f}\n"""
                           f"""{'Mean episode length:':>{pad}} {statistics.mean(locs['lenbuffer']):.2f}\n""")
-                        #   f"""{'Mean reward/step:':>{pad}} {locs['mean_reward']:.2f}\n"""
-                        #   f"""{'Mean episode length/episode:':>{pad}} {locs['mean_trajectory_length']:.2f}\n""")
         else:
             log_string = (f"""{'#' * width}\n"""
                           f"""{str.center(width, ' ')}\n\n"""
@@ -314,8 +300,6 @@ class OnPolicyRunner:
                           f"""{'Value function loss:':>{pad}} {locs['mean_value_loss']:.4f}\n"""
                           f"""{'Surrogate loss:':>{pad}} {locs['mean_surrogate_loss']:.4f}\n"""
                           f"""{'Mean action noise std:':>{pad}} {mean_std.item():.2f}\n""")
-                        #   f"""{'Mean reward/step:':>{pad}} {locs['mean_reward']:.2f}\n"""
-                        #   f"""{'Mean episode length/episode:':>{pad}} {locs['mean_trajectory_length']:.2f}\n""")
 
         log_string += f"""{'-' * width}\n"""
         log_string += ep_string

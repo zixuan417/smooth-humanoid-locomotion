@@ -46,7 +46,6 @@ class StateHistoryEncoder(nn.Module):
         self.tsteps = tsteps
 
         channel_size = 10
-        # last_activation = nn.ELU()
 
         self.encoder = nn.Sequential(
                 nn.Linear(input_size, 3 * channel_size), self.activation_fn,
