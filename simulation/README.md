@@ -7,7 +7,7 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 cd isaacgym/python && pip install -e .
 cd ../../rsl_rl && pip install -e .
 cd ../legged_gym && pip install -e .
-pip install "numpy==1.23.0" pydelatin wandb tqdm opencv-python ipdb pyfqmr flask dill gdown hydra-core imageio[ffmpeg] mujoco mujoco-python-viewer
+pip install "numpy==1.23.0" pydelatin wandb tqdm opencv-python ipdb pyfqmr flask dill gdown hydra-core "imageio[ffmpeg]" mujoco mujoco-python-viewer
 ```
 
 ## How to use
