@@ -35,6 +35,8 @@
     <sup>5</sup> NVIDIA
     <br>
     * Equal Contribution
+    <br>
+    IROS 2025
 </p>
 
 <p align="center">
